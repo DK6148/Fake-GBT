@@ -2,94 +2,121 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Meine Chat Seite</title>
+<title>Hallo was geht ja</title>
 
 <style>
 
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#808080;
+margin:0;
+font-family:Arial, sans-serif;
+background:#2b2b2b;
+color:white;
 }
 
-/* Top Balken */
+/* Topbar */
 
 .topbar{
-    background:black;
-    height:70px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
+background:black;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
 }
-
-/* großes Namensfeld */
 
 .namebox{
-    background:white;
-    color:black;
-    padding:10px 30px;
-    font-size:28px;
-    font-weight:bold;
-    text-transform:uppercase;
-    border-radius:6px;
+font-size:28px;
+font-weight:bold;
+text-transform:uppercase;
+color:white;
 }
-
-/* kleines Feld links */
 
 .leftbox{
-    position:absolute;
-    left:15px;
-    background:white;
-    padding:6px 12px;
-    border-radius:4px;
-    font-size:14px;
+position:absolute;
+left:15px;
+font-size:14px;
+color:white;
 }
 
-/* Willkommen Text */
+/* Willkommen */
 
 .welcome{
-    margin-top:100px;
-    text-align:center;
-    font-size:30px;
-    color:white;
+margin-top:60px;
+text-align:center;
+font-size:30px;
 }
 
-/* Chat Bereich */
+/* Chatbereich */
+
+.chat-area{
+margin-top:40px;
+padding:20px;
+max-width:800px;
+margin-left:auto;
+margin-right:auto;
+
+height:55vh;
+overflow-y:auto;
+}
+
+/* Nachrichten */
+
+.message{
+padding:12px 18px;
+margin:10px;
+max-width:60%;
+border-radius:10px;
+font-size:16px;
+}
+
+.user{
+background:#444;
+margin-left:auto;
+text-align:right;
+}
+
+.bot{
+background:#1f1f1f;
+margin-right:auto;
+}
+
+/* Chat Eingabe */
 
 .chat-container{
-    position:fixed;
-    bottom:20px;
-    width:100%;
-    display:flex;
-    justify-content:center;
+position:fixed;
+bottom:20px;
+width:100%;
+display:flex;
+justify-content:center;
 }
 
 .chat-box{
-    width:600px;
-    display:flex;
+width:600px;
+display:flex;
 }
 
 .chat-box input{
-    flex:1;
-    padding:15px;
-    font-size:16px;
-    border:none;
-    border-radius:10px 0 0 10px;
+flex:1;
+padding:15px;
+font-size:16px;
+border:none;
+outline:none;
+background:#1f1f1f;
+color:white;
+border-radius:10px 0 0 10px;
 }
 
 .chat-box button{
-    padding:15px 20px;
-    font-size:16px;
-    border:none;
-    background:black;
-    color:white;
-    border-radius:0 10px 10px 0;
-    cursor:pointer;
+padding:15px 20px;
+font-size:16px;
+border:none;
+background:black;
+color:white;
+border-radius:0 10px 10px 0;
+cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -101,23 +128,33 @@ MENÜ
 </div>
 
 <div class="namebox">
-DEIN NAME
+Fake GBT
 </div>
 
 </div>
 
 <div class="welcome">
-Willkommen auf meiner Chat Seite
+Hxlo
 </div>
+
+<div class="chat-area" id="chatArea"></div>
 
 <div class="chat-container">
-
 <div class="chat-box">
-<input type="text" placeholder="Schreibe etwas...">
-<button>SENDEN</button>
+<input id="chatInput" type="text" placeholder="Schreibe etwas...">
+<button onclick="sendMessage()">SEND</button>
+</div>
 </div>
 
-</div>
+<script>
 
-</body>
-</html>
+function sendMessage(){
+
+let input=document.getElementById("chatInput");
+let text=input.value.trim();
+
+if(text==="") return;
+
+addMessage(text,"user");
+
+input.value="";
