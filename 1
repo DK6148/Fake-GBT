@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Meine Chat Seite</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#808080;
+}
+
+/* Top Balken */
+
+.topbar{
+    background:black;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+/* großes Namensfeld */
+
+.namebox{
+    background:white;
+    color:black;
+    padding:10px 30px;
+    font-size:28px;
+    font-weight:bold;
+    text-transform:uppercase;
+    border-radius:6px;
+}
+
+/* kleines Feld links */
+
+.leftbox{
+    position:absolute;
+    left:15px;
+    background:white;
+    padding:6px 12px;
+    border-radius:4px;
+    font-size:14px;
+}
+
+/* Willkommen Text */
+
+.welcome{
+    margin-top:100px;
+    text-align:center;
+    font-size:30px;
+    color:white;
+}
+
+/* Chat Bereich */
+
+.chat-container{
+    position:fixed;
+    bottom:20px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.chat-box{
+    width:600px;
+    display:flex;
+}
+
+.chat-box input{
+    flex:1;
+    padding:15px;
+    font-size:16px;
+    border:none;
+    border-radius:10px 0 0 10px;
+}
+
+.chat-box button{
+    padding:15px 20px;
+    font-size:16px;
+    border:none;
+    background:black;
+    color:white;
+    border-radius:0 10px 10px 0;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+<div class="leftbox">
+MENÜ
+</div>
+
+<div class="namebox">
+DEIN NAME
+</div>
+
+</div>
+
+<div class="welcome">
+Willkommen auf meiner Chat Seite
+</div>
+
+<div class="chat-container">
+
+<div class="chat-box">
+<input type="text" placeholder="Schreibe etwas...">
+<button>SENDEN</button>
+</div>
+
+</div>
+
+</body>
+</html>
